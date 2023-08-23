@@ -4,25 +4,27 @@ public class Uso_bucle_for {
         public static void main(String[] args){
 
 
-            boolean arroba  =false;
+            int arroba  = 0;
+            Boolean punto = false;
             String correo = JOptionPane.showInputDialog("Ingresa tu correo");
             for(int i=0;i<correo.length();i++){
             
                 if(correo.charAt(i)=='@'){ 
-                    arroba=true;
+                    arroba++;
                 
             }
-                           
+                if(correo.charAt(i)=='.'){ 
+                    punto=true;
+                
+            }        
                        
-            }  if(arroba == true){
+            }  if(arroba == 1 && punto == true){
              System.out.println("tu correo " + correo + " es correcto");
 
-            }   else{
+            }   else {
             System.out.println("el correo ingresado " + correo + " es incorrecto");
 
             }
-
-
 
     }
 }
