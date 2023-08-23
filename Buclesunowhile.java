@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Bucleswhile{
+public class Buclesunowhile{
     public static void main(String[] args) {
         
         String clave = "Miguel";
