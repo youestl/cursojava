@@ -15,7 +15,6 @@ public class Uso_bucle_for {
             }
                 if(correo.charAt(i)=='.'){ 
                     punto=true;
-                
             }        
                        
             }  if(arroba == 1 && punto == true){
