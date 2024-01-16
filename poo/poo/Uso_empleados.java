@@ -3,45 +3,26 @@ import java.util.*;
 import javax.swing.*;
 
 
+
+
 public class Uso_empleados {
     public static void main(String[] args) {
 
+
+        Jefatura jefe_01 = new Jefatura("Miguel", 23000, 1990, 11, 24);
+
         
+        jefe_01.Establece_incentivo(23000);
+
         
-        /*Empleado empleado1= new Empleado("Miguel Ahumada",67999,2018,2,3);
-        empleado1.Subesueldo(5);
-
-        Empleado empleado2= new Empleado("Carla R",78199,2012,5,3);
-        empleado1.Subesueldo(5);
-
-        Empleado empleado3= new Empleado("Aika2",50000,2021,5,28);
-        empleado1.Subesueldo(5);
-
-        System.out.println("Nombre: " + empleado1.Dime_nombre() + " Sueldo: " + empleado1.Dime_sueldos() +
-        " Fecha Contrato: " + empleado1.Damefechacontrato());
-
-        System.out.println("Nombre: " + empleado2.Dime_nombre() + " Sueldo: " + empleado2.Dime_sueldos() +
-        " Fecha Contrato: " + empleado2.Damefechacontrato());
- 
-        System.out.println("Nombre: " + empleado3.Dime_nombre() + " Sueldo: " + empleado3.Dime_sueldos() +
-        " Fecha Contrato: " + empleado3.Damefechacontrato());*/
- 
-
-        Empleado [] misempleados = new Empleado[3];
+        Empleado [] misempleados = new Empleado[4];
 
         misempleados[0] = new Empleado("Miguel " , 56444, 2018, 3, 30);
         misempleados[1] = new Empleado("carla Roj ", 632999, 2108,2,3);
         misempleados[2] = new Empleado("Aika " , 632929, 2011,2,3);
+        misempleados[3] = jefe_01;
 
-        /*for(int i=0;i<3;i++){
-            misempleados[i].Subesueldo(5);
-        }
 
-        
-        for(int i=0;i<3;i++){
-            System.out.println("Nombre " + misempleados[i].Dime_nombre() + " Sueldo :" + misempleados[i].Dime_sueldos()
-            + " Fecha contrato " + misempleados[i].Damefechacontrato() );
-        }*/
 
         for(Empleado e : misempleados){
             e.Subesueldo(5);
@@ -52,7 +33,7 @@ public class Uso_empleados {
 
         }
     }
-}
+
 
 
 class Empleado{// cuando se utiliza solo un fichero para las clases solo puede haber una del 
@@ -67,11 +48,7 @@ class Empleado{// cuando se utiliza solo un fichero para las clases solo puede h
 
     }
 
-        /*  public void Establece_nombre(String nombre_empleado){
-        for(int i=0;i<3;i++){
-        misempleados[]
-    }
-    }*/
+
     public String Dime_nombre(){//getter
         return nombre;
     }
@@ -97,8 +74,32 @@ class Empleado{// cuando se utiliza solo un fichero para las clases solo puede h
     private String nombre;
     private double sueldo;
     private Date alta_contrato;
-    
-}
-    
 
+}
+
+    //Subclase JEFATURA
+    class Jefatura extends Empleado {
+
+    public Jefatura(String nom, double sue, int ano, int mes, int dia){
+
+    super(nom, sue, ano,mes,dia);
+
+    
+    }
+    public void Establece_incentivo(double b){
+
+    Incentivo = b;
+
+    }
+
+    public double Dime_sueldos(){
+    
+    double SueldoJefe= super.Dime_sueldos();    //el metodo Dime Sueldo reemplaza al metodo Dime sueldo de la clase empleado pero
+    return Incentivo + SueldoJefe;              //al utilizar super se adquieren las caracteristicas del metodo de la clase padre
+
+    }
+    public double Incentivo;
+
+        }
+}
 
